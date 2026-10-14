@@ -83,7 +83,8 @@ ls -l index.html
         stage('02 - Claude AI To Review Code') {
             steps {
                 aiAgent(
-                    agent: claudeCode(executablePath: "${env.CLAUDE_BIN}"),
+                    agent: claudeCode(),
+                    executablePath: "${env.CLAUDE_BIN}",
                     prompt: '''
 You are a senior DevOps and application engineer.
 
@@ -168,7 +169,8 @@ exit 1
         stage('07 - Claude Deployment Summary') {
             steps {
                 aiAgent(
-                    agent: claudeCode(executablePath: "${env.CLAUDE_BIN}"),
+                    agent: claudeCode(),
+                    executablePath: "${env.CLAUDE_BIN}",
                     prompt: '''
 You are a DevOps release engineer.
 
